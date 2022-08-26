@@ -19,6 +19,31 @@ A aplicação para gerenciar em tempo real solicitações de manutenção e supo
 - Sincronização com banco de dados em tempo real
 - Entre outras...
 
+## Identificadores para Automação
+Sign In
+- emailTextField
+- passwordTextField
+- signInButton
+
+Home
+- logoutButton
+- amountOfRequests
+- onGoingButton
+- finishedButton
+- [id]
+- newRequestButton
+
+Detail
+- returnToHome
+- orderStatus
+- orderPatrimony
+- orderDescription
+- orderCreateDate
+- orderSolutionTextField
+- orderSolution
+- orderResolveDate
+- orderResolveButton
+
 ## Projeto Original
 [rodrigorgtic/rockethelp](https://github.com/rodrigorgtic/rockethelp)
 [figma](https://www.figma.com/file/pPsoZIY7JOsnow4e1N2yVd/Ignite-Lab-de-React-Native-20k22-(Copy)?node-id=37%3A6)
