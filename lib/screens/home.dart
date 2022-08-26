@@ -58,7 +58,6 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         children: controller.getOrders().map((request) {
                           return RequestCard(
-                            key: Key(request.id),
                             patrimony: request.patrimony,
                             time: request.createdAt,
                             finished: request.finished,
@@ -88,6 +87,7 @@ class HomeScreen extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 16),
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: MyButton(
+                key: const Key('newRequestButton'),
                 label: 'Nova Solicitação',
                 onTap: () {
                   Navigator.push(

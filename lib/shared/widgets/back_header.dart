@@ -14,6 +14,7 @@ class BackHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
+            key: const Key('returnToHome'),
             onTap: () => Navigator.pop(context),
             splashFactory: NoSplash.splashFactory,
             highlightColor: Colors.transparent,

@@ -41,6 +41,7 @@ class OrderIdentification extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             'Patrimônio ${order.patrimony.toString().padLeft(6, '0')}',
+            key: const Key('orderPatrimony'),
             style: const TextStyle(
               color: Colors.white,
             ),

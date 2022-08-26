@@ -53,6 +53,7 @@ class _MyTextFieldState extends State<MyTextField> {
     return SizedBox(
       height: 70,
       child: TextFormField(
+        key: widget.key,
         maxLines: 1,
         controller: controller,
         cursorColor: Constants.green700,

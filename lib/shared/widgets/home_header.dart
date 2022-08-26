@@ -35,6 +35,7 @@ class HomeHeader extends StatelessWidget {
                   'assets/secondaryLogo.svg',
                 ),
                 InkWell(
+                  key: const Key('logoutButton'),
                   onTap: () {
                     Navigator.of(context).pop();
                   },
@@ -65,6 +66,7 @@ class HomeHeader extends StatelessWidget {
                   builder: (context, controller, child) {
                     return Text(
                       '${controller.getOrders().length}',
+                      key: const Key('amountOfRequests'),
                       style: const TextStyle(
                         color: Constants.gray300,
                       ),
@@ -83,6 +85,7 @@ class HomeHeader extends StatelessWidget {
                 child: Row(
                   children: [
                     MenuButton(
+                      key: const Key('onGoingButton'),
                       label: 'EM ANDAMENTO',
                       onTap: () {
                         if (controller.currentType == RequestType.closed) {
@@ -94,6 +97,7 @@ class HomeHeader extends StatelessWidget {
                     ),
                     const SizedBox(width: 8),
                     MenuButton(
+                      key: const Key('finishedButton'),
                       label: 'FINALIZADOS',
                       onTap: () {
                         if (controller.currentType == RequestType.open) {

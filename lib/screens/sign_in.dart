@@ -45,8 +45,6 @@ class SignInScreen extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * .45,
                         child: Column(
                           children: [
-                            // const SizedBox(height: 164),
-                            // const SizedBox(height: 50),
                             const Text(
                               'Acesse sua conta',
                               style: TextStyle(
@@ -56,6 +54,7 @@ class SignInScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 24),
                             MyTextField(
+                              key: const Key('emailTextField'),
                               icon: PhosphorIcons.envelope,
                               placeholder: 'E-mail',
                               onChange: (value) {},
@@ -64,6 +63,7 @@ class SignInScreen extends StatelessWidget {
                               inputAction: TextInputAction.next,
                             ),
                             MyTextField(
+                              key: const Key('passwordTextField'),
                               icon: PhosphorIcons.key,
                               placeholder: 'Senha',
                               obscure: true,
@@ -72,6 +72,7 @@ class SignInScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 32),
                             MyButton(
+                              key: const Key('signInButton'),
                               label: 'Entrar',
                               onTap: () {
                                 if (formKey.currentState!.validate()) {

@@ -56,6 +56,7 @@ class DetailRequestScreen extends StatelessWidget {
                           const SizedBox(width: 8),
                           Text(
                             order.finished ? 'FINALIZADO' : 'EM ANDAMENTO',
+                            key: const Key('orderStatus'),
                             style: TextStyle(
                               color: order.finished
                                   ? Constants.green300
@@ -104,14 +105,46 @@ class DetailRequestScreen extends StatelessWidget {
                       Visibility(
                         visible: !order.finished,
                         child: MyButton(
+                          key: const Key('orderResolveButton'),
                           label: 'Finalizar',
                           onTap: () {
                             final requestsController =
                                 context.read<RequestsController>();
                             FocusScope.of(context).unfocus();
-                            if (order.solution.isEmpty) {
-                            } else {
+                            if (order.solution.isNotEmpty) {
                               requestsController.close(order);
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  backgroundColor: Colors.transparent,
+                                  padding: EdgeInsets.zero,
+                                  content: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 16,
+                                      horizontal: 8,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.redAccent,
+                                      borderRadius:
+                                          BorderRadiusDirectional.circular(6),
+                                    ),
+                                    child: Row(
+                                      children: const [
+                                        Icon(
+                                          PhosphorIcons.warning,
+                                          color: Colors.white,
+                                        ),
+                                        SizedBox(
+                                          width: 8,
+                                        ),
+                                        Text(
+                                          'Informe uma solução.',
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );
                             }
                           },
                         ),

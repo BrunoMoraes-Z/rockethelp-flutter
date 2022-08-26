@@ -42,6 +42,7 @@ class OrderDetailInformation extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             order.description,
+            key: const Key('orderDescription'),
             style: const TextStyle(
               color: Colors.white,
             ),
@@ -52,6 +53,7 @@ class OrderDetailInformation extends StatelessWidget {
           ),
           Text(
             'Registrado em ${formatDate(order.createdAt)}',
+            key: const Key('orderCreateDate'),
             style: const TextStyle(
               color: Constants.gray300,
             ),

@@ -19,9 +19,11 @@ class RequestCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final id = '${formatDate(time)}.$patrimony'.hashCode.toString();
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: InkWell(
+        key: Key(id),
         onTap: onTap,
         borderRadius: BorderRadius.circular(6),
         child: Container(
@@ -62,6 +64,7 @@ class RequestCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           const Icon(
                             PhosphorIcons.clock,
@@ -75,7 +78,23 @@ class RequestCard extends StatelessWidget {
                               color: Constants.gray300,
                               fontSize: 14,
                             ),
-                          )
+                          ),
+                          const SizedBox(width: 8),
+                          const Text(
+                            '-',
+                            style: TextStyle(
+                              color: Constants.gray300,
+                              fontSize: 12,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            'ID: $id',
+                            style: const TextStyle(
+                              color: Constants.gray300,
+                              fontSize: 10,
+                            ),
+                          ),
                         ],
                       )
                     ],

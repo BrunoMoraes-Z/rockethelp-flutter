@@ -62,10 +62,14 @@ class _SolutionDetailInformationState extends State<SolutionDetailInformation> {
           const SizedBox(height: 8),
           !widget.order.finished
               ? OnGoingTextField(
+                  key: const Key('orderSolutionTextField'),
                   order: widget.order,
                   controller: controller,
                 )
-              : FineshedText(order: widget.order),
+              : FineshedText(
+                  key: const Key('orderSolution'),
+                  order: widget.order,
+                ),
           const Spacer(),
           if (widget.order.finished)
             Divider(
@@ -74,6 +78,7 @@ class _SolutionDetailInformationState extends State<SolutionDetailInformation> {
           if (widget.order.finished)
             Text(
               'Finalizado em ${formatDate(widget.order.closetAt ?? DateTime.now())}',
+              key: const Key('orderResolveDate'),
               style: const TextStyle(
                 color: Constants.gray300,
               ),
@@ -104,6 +109,7 @@ class _OnGoingTextFieldState extends State<OnGoingTextField> {
     return SizedBox(
       height: 185,
       child: TextField(
+        key: widget.key,
         controller: widget.controller,
         textInputAction: TextInputAction.newline,
         maxLines: null,
@@ -138,6 +144,7 @@ class FineshedText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       order.solution,
+      key: key,
       style: const TextStyle(
         color: Colors.white,
       ),
