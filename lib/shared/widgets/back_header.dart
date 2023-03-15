@@ -25,8 +25,8 @@ class BackHeader extends StatelessWidget {
               ),
             ),
           ),
+          const Spacer(),
           Container(
-            width: MediaQuery.of(context).size.width * .82,
             alignment: Alignment.center,
             padding: const EdgeInsets.only(right: 8),
             child: const Text(
@@ -38,6 +38,7 @@ class BackHeader extends StatelessWidget {
               ),
             ),
           ),
+          const Spacer(),
         ],
       ),
     );
